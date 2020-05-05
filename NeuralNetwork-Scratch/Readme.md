@@ -18,7 +18,7 @@ N_neurons:6, N_steps:92, Output:[[-0.5  0.5  0.5 -0.5]]
 N_neurons:8, N_steps:87, Output:[[-0.5  0.5  0.5 -0.5]]  
 N_neurons:10, N_steps:108, Output:[[-0.5  0.5  0.5 -0.5]]   
 
-It seems that Layer 8 converges fastest.  
+It seems that Layer with 8 neurons converges fastest.  
 
 A simple 2 layer neural network can solve XOR problem easily, even with just 2 neurons.  
 We will try for more hidden layers in next update.  
