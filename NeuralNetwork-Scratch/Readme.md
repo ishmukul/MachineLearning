@@ -1,8 +1,11 @@
 A simple two layer Neural Network from scratch to solve XOR problem, which is not linearly separable. 
 Python numpy library has been used for generating arrays.  
 
-Classes are not used in this example since it was a simple 2 layer network. 
-In next update, multi layer network will be implemented with class variables.  
+Class **NeuralNet** should be instantiated first.  
+
+Class methods could be used to get:  
+ **get_weights**: Outputs weights and bias of fitted function  
+ **get_steps**: Outputs number of steps to reach precision. n_steps is also returned from **fit** function itself.  
 
 ## Input
 X = (-0.5, -0.5), (-0.5, 0.5), (0.5, -0.5), (0.5, 0.5)    
