@@ -186,20 +186,20 @@ for n in np.arange(2, 12, 2):
     # Yhat = (Yhat > 0.5).astype(int)
 
     Yhat = np.round(Yhat, 1)  # Round values to 1 decimal place.
-    print('N_hidden_layers:' + str(n) + ', N_steps:' + str(n_steps) + ', Output:' + str(Yhat))
+    print('N_neurons:' + str(n) + ', N_steps:' + str(n_steps) + ', Output:' + str(Yhat))
     axislabel = ['Steps', 'Cost']
     gtitle = 'Cost function'
     fname = 'Cost_NN.png'
-    plotlabel = 'Hidden layer: ' + str(n)
+    plotlabel = 'Neurons: ' + str(n)
     plot_1d(costs, figsame=False, alabel=axislabel, llabel=plotlabel, title=gtitle, filename=fname)
 
 # Output
 # Plot of cost function is saved.
-# N_hidden_layers:2, N_steps:215, Output:[[-0.5  0.5  0.5 -0.5]]
-# N_hidden_layers:4, N_steps:96, Output:[[-0.5  0.5  0.5 -0.5]]
-# N_hidden_layers:6, N_steps:92, Output:[[-0.5  0.5  0.5 -0.5]]
-# N_hidden_layers:8, N_steps:87, Output:[[-0.5  0.5  0.5 -0.5]]
-# N_hidden_layers:10, N_steps:108, Output:[[-0.5  0.5  0.5 -0.5]]
+# N_neurons:2, N_steps:215, Output:[[-0.5  0.5  0.5 -0.5]]
+# N_neurons:4, N_steps:96, Output:[[-0.5  0.5  0.5 -0.5]]
+# N_neurons:6, N_steps:92, Output:[[-0.5  0.5  0.5 -0.5]]
+# N_neurons:8, N_steps:87, Output:[[-0.5  0.5  0.5 -0.5]]
+# N_neurons:10, N_steps:108, Output:[[-0.5  0.5  0.5 -0.5]]
 
 # It seems that Layer 8 converges fastest.
 # Since seed number is fixed, output will remain same at each run.
