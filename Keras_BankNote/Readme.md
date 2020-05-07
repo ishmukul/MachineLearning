@@ -22,7 +22,10 @@ investigated object gray-scale pictures with a resolution of about 660 dpi were 
 
 ## Approaches  
 
-Data was scaled with mean=0, sd=1, and split in hold-out of 75:25 ratio.  
+Data was scaled with mean=0, sd=1, and split in hold-out of 85:15 ratio.  
+
+Applied oversampling from [imbalanced-learn] (https://imbalanced-learn.readthedocs.io/en/stable/index.html) 
+for addressing class imbalance issue.  
 
 Four ML models have been trained in this work and tested on the hold-out set.      
 1) Support Vector Machine: Gaussian Kernel.    
