@@ -2,7 +2,7 @@
 
 Keras based neural network classifier application for Banknote authentication dataset.  
 
-**Data Source**: [UCI website] (https://archive.ics.uci.edu/ml/datasets/banknote+authentication)  
+**Data Source**: [UCI website](https://archive.ics.uci.edu/ml/datasets/banknote+authentication)  
 
 **Data Set Information:**  
 
@@ -24,7 +24,7 @@ investigated object gray-scale pictures with a resolution of about 660 dpi were 
 
 Data was scaled with mean=0, sd=1, and split in hold-out of 85:15 ratio.  
 
-Applied oversampling from [imbalanced-learn] (https://imbalanced-learn.readthedocs.io/en/stable/index.html) 
+Applied oversampling from [imbalanced-learn](https://imbalanced-learn.readthedocs.io/en/stable/index.html) 
 for addressing class imbalance issue.  
 
 Four ML models have been trained in this work and tested on the hold-out set.      
