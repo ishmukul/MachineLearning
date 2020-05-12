@@ -26,8 +26,11 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'  # or any {'0', '1', '2'}
 
 # Set random seed to be fixed. Comment to generate different results every time.
-# np.random.seed(1)
-# tf.random.set_seed(2)
+seed = 10
+
+
+# np.random.seed(seed)
+# tf.random.set_seed(seed)
 
 
 # Defining an accuracy function based on Confusion matrix
@@ -135,7 +138,10 @@ loss = 'binary_crossentropy'
 model.compile(loss=loss, optimizer=opt, metrics=['accuracy'])
 
 # Fit model; Verbose=0 will not show print messages
-model.fit(X_train, Y_train, epochs=20, batch_size=32, verbose=0)
+model.fit(X_train, Y_train, epochs=10, batch_size=32, verbose=1)
+
+# validation split can be applied to full data directly
+# model.fit(X_scale, Y, epochs=20, validation_split=0.2, batch_size=32, verbose=1)
 
 # Calculate score and values
 score = model.evaluate(X_test, Y_test, batch_size=32, verbose=0)
@@ -157,6 +163,7 @@ print('Time for Decision Tree Classifier: %f s, Accuracy: %0.2f, and F1 score = 
 print('Time for Keras Neural Network: %f s, Accuracy: %0.2f, and F1 score = %0.2f' % (time_keras, score[1], f1_keras))
 
 # Output:
+# For Hold-out method
 # By comparing with different classifiers, it seems SVM and Neural Networks are producing similar results. It may be
 # possible that data is separable and SVM works fine. Other classifiers are also giving more than 95% accuracy.
 #
@@ -164,3 +171,24 @@ print('Time for Keras Neural Network: %f s, Accuracy: %0.2f, and F1 score = %0.2
 # Time for Random Forrest Classifier: 0.140958 s, Accuracy: 98.83, and F1 score = 0.99
 # Time for Decision Tree Classifier: 0.003153 s, Accuracy: 97.38, and F1 score = 0.97
 # Time for Keras Neural Network: 1.231440 s, Accuracy: 1.00, and F1 score = 1.00
+
+# ===========================================
+# ===========================================
+
+# Let us try with manual K-fold cross validation of dataset
+from sklearn.model_selection import StratifiedKFold
+
+cvscores = []
+n_splits = 10
+# define 10-fold cross validation test harness
+kfold = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=seed)
+for train, test in kfold.split(X, Y):
+    # Fit the model
+    model.fit(X_scale[train], Y[train], epochs=10, batch_size=10, verbose=0)
+    # evaluate the model
+    scores = model.evaluate(X_scale[test], Y[test], verbose=1)
+    print("%s: %.2f%%" % (model.metrics_names[1], scores[1] * 100))
+    cvscores.append(scores[1] * 100)
+print("%.2f%% (+/- %.2f%%)" % (np.mean(cvscores), np.std(cvscores)))
+
+# Accuracy on this dataset is close to 100% in both hold out and K-fold splits.

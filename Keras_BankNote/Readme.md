@@ -36,7 +36,6 @@ Input Layer (ReLU) -> 2x Hidden Layer (ReLU) -> Drop layer -> Output Layer (Sigm
   There are options for different Loss and optimizer functions (commented in the code).  
   Keras model was run over 20 epochs in batch size=32.  
 
-
 Accuracy metric were collected from :  
 a) Confusion matrix  
 b) F1 score  
@@ -50,4 +49,8 @@ possible that data is separable and SVM works fine. Other classifiers are also g
 Time for Support Vector Machine: 0.004812 s, Accuracy: 100.00, and F1 score = 1.00  
 Time for Random Forrest Classifier: 0.140958 s, Accuracy: 98.83, and F1 score = 0.99  
 Time for Decision Tree Classifier: 0.003153 s, Accuracy: 97.38, and F1 score = 0.97  
-Time for Keras Neural Network: 1.231440 s, Accuracy: 1.00, and F1 score = 1.00  
+Time for Keras Neural Network: 1.231440 s, Accuracy: 1.00, and F1 score = 1.00   
+
+## Updates:  
+
+1) Added K-fold split for cross validation check. Accuracy is still close to 100% in this dataset.
