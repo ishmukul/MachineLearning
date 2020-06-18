@@ -12,7 +12,8 @@ X = (-0.5, -0.5), (-0.5, 0.5), (0.5, -0.5), (0.5, 0.5)
 Y = (-0.5), (0.5), (0.5), (-0.5)  
 
 ## Output  
-Plot of cost function is saved at [Cost_NN.png](https://github.com/ishmukul/MachineLearning/blob/master/NeuralNetwork-Scratch/Cost_NN.png).  
+Plot of cost function is saved at [Cost_NN.png](https://github.com/ishmukul/MachineLearning/blob/master/NeuralNetwork-Scratch/Cost_NN.png?raw=true).  
+![Cos function](https://github.com/ishmukul/MachineLearning/blob/master/NeuralNetwork-Scratch/Cost_NN.png?raw=true)
 
 Since seed number is fixed, output of Python script will remain same:  
 N_neurons:2, N_steps:215, Output:[[-0.5  0.5  0.5 -0.5]]  
